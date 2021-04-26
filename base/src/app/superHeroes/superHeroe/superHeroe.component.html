@@ -1,1 +1,9 @@
-<h1>Super Heroe Component</h1>
+<h1>{{name}}</h1>
+
+<td>Name: </td><dd>{{name}}</dd>
+<td>Age: </td><dd>{{age}}</dd>
+<td>Name & Age: </td><dd>{{getAll()}}</dd>
+<td>Name capitalized: </td><dd>{{nameCapitalized}}</dd>
+
+<button (click)="changeSuper()">Change SuperHeroe</button>
+<button (click)="changeAge()">Change Age</button>
