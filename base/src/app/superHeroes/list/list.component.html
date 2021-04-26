@@ -1,1 +1,12 @@
 <p>list works!</p>
+
+
+<ul>
+    <li *ngFor="let superHeroe of heroes; let i = index">
+        {{i+1}} - {{superHeroe}}
+    </li>
+</ul>
+<div>
+    <h5>Super heroe erased: {{heroeLeft}}</h5>
+</div>
+<button (click)="eraseSuper()">Shift</button>
