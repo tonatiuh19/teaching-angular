@@ -1,4 +1,5 @@
 <h1>{{title}}</h1>
-<button (click)="plusOne();">+1</button>
+<strong>{{base}}</strong>
+<button (click)="acumulate(+base);">+{{base}}</button>
 <span>{{counter}}</span>
-<button (click)="lessOne();">-1</button>
+<button (click)="acumulate(-base);">-{{base}}</button>

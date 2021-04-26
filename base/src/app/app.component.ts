@@ -8,12 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'base';
   counter:number = 0;
+  base:number = 5;
 
-  plusOne(){
-    this.counter += 1;
-  }
-
-  lessOne(){
-    this.counter -= 1;
+  acumulate(val:number){
+    this.counter += val;
   }
 }
