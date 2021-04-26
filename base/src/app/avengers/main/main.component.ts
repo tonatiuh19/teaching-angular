@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-interface Personaje {
+interface Heroe {
   name: string;
   level: number;
 }
@@ -11,13 +11,35 @@ interface Personaje {
   styleUrls: ['./main.component.css'],
 })
 export class MainComponent {
-  new: Personaje = {
-    name: 'Captain Marvel',
-    level: 95,
+  crew: Heroe[] = [
+    {
+      name: 'Ironman',
+      level: 98000,
+    },
+    {
+      name: 'Captain America',
+      level: 96000,
+    },
+    {
+      name: 'Storm',
+      level: 90000,
+    },
+  ];
+
+  new: Heroe = {
+    name: '',
+    level: 0,
   };
 
   add() {
-    console.log(this.new);
+    if (this.new.name.trim().length === 0) {
+      return;
+    }
+    this.crew.push(this.new);
+    this.new = {
+      name: '',
+      level: 0,
+    };
   }
 
   //Optional

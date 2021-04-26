@@ -4,9 +4,9 @@
     <div class="col-sm">
         <h3>Avengers</h3>
         <ul>
-            <li>Ironman - 98</li>
-            <li>Captain America - 95</li>
-            <li>Storm - 90</li>
+            <li *ngFor="let superHeroe of crew; let i = index">
+                {{superHeroe.name}} - {{superHeroe.level | number}}
+            </li>
         </ul>
     </div>
     <div class="col-sm">
