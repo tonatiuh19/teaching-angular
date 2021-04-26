@@ -1,2 +1,21 @@
 <h1>Avengers</h1>
 <hr>
+<div class="row">
+    <div class="col-sm">
+        <h3>Avengers</h3>
+        <ul>
+            <li>Ironman - 98</li>
+            <li>Captain America - 95</li>
+            <li>Storm - 90</li>
+        </ul>
+    </div>
+    <div class="col-sm">
+        <h3>Add new</h3>
+        <hr>
+        <form (ngSubmit)="add()">
+            <input type="text" placeholder="Name" />
+            <input type="number" placeholder="Level" />
+            <button>Add</button>
+        </form>
+    </div>
+</div>
