@@ -6,7 +6,13 @@
         {{i+1}} - {{superHeroe}}
     </li>
 </ul>
-<div>
+<div *ngIf="heroeLeft !== ''; else notErased">
     <h5>Super heroe erased: {{heroeLeft}}</h5>
 </div>
+
+<ng-template #notErased>
+    <h5>No super heore erased</h5>
+</ng-template>
+
+
 <button (click)="eraseSuper()">Shift</button>
