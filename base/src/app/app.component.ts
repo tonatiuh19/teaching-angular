@@ -8,4 +8,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'base';
   counter:number = 0;
+
+  plusOne(){
+    this.counter += 1;
+  }
+
+  lessOne(){
+    this.counter -= 1;
+  }
 }
