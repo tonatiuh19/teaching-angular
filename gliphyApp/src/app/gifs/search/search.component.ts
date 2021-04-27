@@ -13,6 +13,9 @@ export class SearchComponent {
 
   searching() {
     console.log(this.txtSearch.nativeElement.value);
+    if (this.txtSearch.nativeElement.value.trim().length === 0) {
+      return;
+    }
     this.gifsService.searchGifs(this.txtSearch.nativeElement.value);
     this.txtSearch.nativeElement.value = '';
   }
