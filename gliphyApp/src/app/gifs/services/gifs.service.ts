@@ -39,7 +39,7 @@ export class GifsService {
       .set('query', query);
 
     this.http
-      .get<SearchGIFResponse>(`${this.serviceUrl}/search`, { params: params })
+      .get<SearchGIFResponse>(`${this.serviceUrl}/search`, { params })
       .subscribe((x) => {
         console.log(x.data);
         this.results = x.data;
