@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class GifsService {
   private gliphyAPIKey: string = 'TPxIgsPRshgrWl6h3jyocO8kO9au1z60';
   private _historial: string[] = [];
+  public results: any[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -22,10 +23,11 @@ export class GifsService {
 
     this.http
       .get(
-        'https://api.giphy.com/v1/gifs/search?api_key=TPxIgsPRshgrWl6h3jyocO8kO9au1z60&q=ironman&limit=10'
+        `https://api.giphy.com/v1/gifs/search?api_key=TPxIgsPRshgrWl6h3jyocO8kO9au1z60&q=${query}&limit=10`
       )
       .subscribe((x: any) => {
         console.log(x.data);
+        this.results = x.data;
       });
   }
 }
