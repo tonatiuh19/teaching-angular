@@ -25,7 +25,8 @@ export class GifsService {
   }
 
   searchGifs(query: string) {
-    if (!this._historic.includes(query.trim().toLowerCase())) {
+    query = query.trim().toLowerCase();
+    if (!this._historic.includes(query)) {
       this._historic.unshift(query);
       this._historic = this._historic.splice(0, 10);
       localStorage.setItem('historic', JSON.stringify(this._historic));
