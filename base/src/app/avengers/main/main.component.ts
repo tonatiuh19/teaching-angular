@@ -8,21 +8,7 @@ import { AvengersService } from '../services/avengers.service';
   styleUrls: ['./main.component.css'],
 })
 export class MainComponent {
-  crew: Heroe[] = [
-    {
-      name: 'Ironman',
-      level: 98000,
-    },
-    {
-      name: 'Captain America',
-      level: 96000,
-    },
-    {
-      name: 'Storm',
-      level: 90000,
-    },
-  ];
-
+  crew: Heroe[] = [];
   new: Heroe = {
     name: '',
     level: 0,
@@ -32,5 +18,7 @@ export class MainComponent {
     this.crew.push(e);
   }
 
-  constructor(private avengersService: AvengersService) {}
+  constructor(private avengersService: AvengersService) {
+    this.crew = this.avengersService.crew;
+  }
 }
