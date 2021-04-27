@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Heroe } from '../interfaces/avengers.interfaces';
+import { AvengersService } from '../services/avengers.service';
 
 @Component({
   selector: 'app-main',
@@ -31,8 +32,5 @@ export class MainComponent {
     this.crew.push(e);
   }
 
-  //Optional
-  /*changeName(e:any){
-    console.log(e.target.value);
-  }*/
+  constructor(private avengersService: AvengersService) {}
 }
