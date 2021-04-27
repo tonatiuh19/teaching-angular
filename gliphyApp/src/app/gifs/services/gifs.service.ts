@@ -7,19 +7,24 @@ import { SearchGIFResponse, GIF } from '../interface/gifs.interface';
 })
 export class GifsService {
   private gliphyAPIKey: string = 'TPxIgsPRshgrWl6h3jyocO8kO9au1z60';
-  private _historial: string[] = [];
+  private _historic: string[] = [];
   public results: GIF[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    if (localStorage.getItem('historic')) {
+      this._historic = JSON.parse(localStorage.getItem('historic')!);
+    }
+  }
 
   get historial() {
-    return [...this._historial];
+    return [...this._historic];
   }
 
   searchGifs(query: string) {
-    if (!this._historial.includes(query.trim().toLowerCase())) {
-      this._historial.unshift(query);
-      this._historial = this._historial.splice(0, 10);
+    if (!this._historic.includes(query.trim().toLowerCase())) {
+      this._historic.unshift(query);
+      this._historic = this._historic.splice(0, 10);
+      localStorage.setItem('historic', JSON.stringify(this._historic));
     }
 
     this.http
