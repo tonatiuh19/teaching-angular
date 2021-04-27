@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-
-interface Heroe {
-  name: string;
-  level: number;
-}
+import { Heroe } from '../interfaces/avengers.interfaces';
 
 @Component({
   selector: 'app-main',
@@ -31,15 +27,8 @@ export class MainComponent {
     level: 0,
   };
 
-  add() {
-    if (this.new.name.trim().length === 0) {
-      return;
-    }
-    this.crew.push(this.new);
-    this.new = {
-      name: '',
-      level: 0,
-    };
+  addNewAvenger(e: Heroe) {
+    this.crew.push(e);
   }
 
   //Optional

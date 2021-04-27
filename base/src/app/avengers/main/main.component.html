@@ -2,21 +2,9 @@
 <hr>
 <div class="row">
     <div class="col-sm">
-        <h3>Avengers</h3>
-        <ul>
-            <li *ngFor="let superHeroe of crew; let i = index">
-                {{superHeroe.name}} - {{superHeroe.level | number}}
-            </li>
-        </ul>
+        <app-the-crew [crew]="crew"></app-the-crew>
     </div>
     <div class="col-sm">
-        <h3>Add new: <small>{{new.name}}</small></h3>
-        <hr>
-        <form (ngSubmit)="add()">
-            <!--<input type="text" (input)="changeName($event)" [value]="new.name" placeholder="Name" />-->
-            <input type="text" [(ngModel)]="new.name" name="heroeName" placeholder="Name" />
-            <input type="number" [(ngModel)]="new.level" name="heroeLevel" placeholder="Level" />
-            <button>Add</button>
-        </form>
+        <app-adding-avenger [new]="new" (onNewAvenger)="addNewAvenger($event)"></app-adding-avenger>
     </div>
 </div>

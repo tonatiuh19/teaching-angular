@@ -1,0 +1,6 @@
+<h3>Avengers</h3>
+<ul>
+    <li *ngFor="let superHeroe of crew; let i = index">
+        {{superHeroe.name}} - {{superHeroe.level | number}}
+    </li>
+</ul>
