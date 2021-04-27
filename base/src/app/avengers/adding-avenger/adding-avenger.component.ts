@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Heroe } from '../interfaces/avengers.interfaces';
+import { AvengersService } from '../services/avengers.service';
 
 @Component({
   selector: 'app-adding-avenger',
@@ -8,14 +9,16 @@ import { Heroe } from '../interfaces/avengers.interfaces';
 })
 export class AddingAvengerComponent {
   @Input() new: Heroe = { name: '', level: 0 };
-  @Output() onNewAvenger: EventEmitter<Heroe> = new EventEmitter();
+  //@Output() onNewAvenger: EventEmitter<Heroe> = new EventEmitter();
+
+  constructor(private avengersService: AvengersService) {}
 
   add() {
     if (this.new.name.trim().length === 0) {
       return;
     }
 
-    this.onNewAvenger.emit(this.new);
+    this.avengersService.addAvenger(this.new);
 
     this.new = {
       name: '',

@@ -3,7 +3,7 @@ import { Heroe } from '../interfaces/avengers.interfaces';
 
 @Injectable()
 export class AvengersService {
-  crew: Heroe[] = [
+  private _crew: Heroe[] = [
     {
       name: 'Ironman',
       level: 98000,
@@ -17,7 +17,16 @@ export class AvengersService {
       level: 90000,
     },
   ];
+
+  get crew(): Heroe[] {
+    return [...this._crew];
+  }
+
   constructor() {
     console.log('Service has been started');
+  }
+
+  addAvenger(data: Heroe) {
+    this._crew.push(data);
   }
 }
