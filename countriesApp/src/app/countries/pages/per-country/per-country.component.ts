@@ -8,9 +8,18 @@ import { CountryService } from '../../services/country.service';
 })
 export class PerCountryComponent {
   search: string = '';
+  errAPI: boolean = false;
   constructor(private countryService: CountryService) {}
 
   searching() {
-    this.countryService.searching(this.search).subscribe((x) => console.log(x));
+    this.errAPI = false;
+    this.countryService.searching(this.search).subscribe(
+      (x) => {
+        console.log(x);
+      },
+      (err) => {
+        this.errAPI = true;
+      }
+    );
   }
 }

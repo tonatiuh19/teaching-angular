@@ -8,8 +8,8 @@
     </div>
 </div>
 <hr>
-<div class="alert alert-danger p-1">Not found</div>
-<div class="row">
+<div class="alert alert-danger p-1" *ngIf="errAPI">Not found: {{search}}</div>
+<div class="row" *ngIf="!errAPI">
     <div class="col">
         <table class="table">
             <thead>
