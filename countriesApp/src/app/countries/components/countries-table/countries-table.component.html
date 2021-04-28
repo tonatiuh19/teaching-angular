@@ -1,0 +1,22 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Flag</th>
+            <th>Name</th>
+            <th>People</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of countries">
+            <td>{{item.numericCode}}</td>
+            <td><img class="small-flag" [src]="item.flag" /></td>
+            <td>{{item.name}}</td>
+            <td>{{item.population | number}}</td>
+            <td>
+                <a [routerLink]="['/country', item.alpha2Code]">See more</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

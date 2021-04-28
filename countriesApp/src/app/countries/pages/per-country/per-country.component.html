@@ -2,34 +2,13 @@
 <hr>
 <div class="row">
     <div class="col-sm">
-        <form (ngSubmit)="searching()" autocomplete="off">
-            <input type="text" [(ngModel)]="search" name="search" class="form-control" placeholder="Search..." />
-        </form>
+        <app-countries-input></app-countries-input>
     </div>
 </div>
 <hr>
 <div class="alert alert-danger p-1" *ngIf="errAPI">Not found: {{search}}</div>
-<div class="row" *ngIf="!errAPI">
+<div class="row" *ngIf="countries.length > 0">
     <div class="col">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Flag</th>
-                    <th>Name</th>
-                    <th>People</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>No</td>
-                    <td>Flag</td>
-                    <td>Name</td>
-                    <td>People</td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
+        <app-countries-table [countries]="countries"></app-countries-table>
     </div>
 </div>
