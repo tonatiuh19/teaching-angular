@@ -13,8 +13,9 @@ export class PerCountryComponent {
   countries: Country[] = [];
   constructor(private countryService: CountryService) {}
 
-  searching() {
+  searching(val: string) {
     this.errAPI = false;
+    this.search = val;
     this.countryService.searching(this.search).subscribe(
       (x) => {
         this.countries = x;
@@ -24,5 +25,9 @@ export class PerCountryComponent {
         this.countries = [];
       }
     );
+  }
+
+  suggest(search: string) {
+    this.errAPI = false;
   }
 }
